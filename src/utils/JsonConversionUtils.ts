@@ -43,7 +43,14 @@ ${parsedJobs}
     const jobsIndentation = this.getIndentation(2);
 
     return Object.entries(jobs)
-      .map(([jobId, jobObject]) => {
+      .map(([jobId, _jobObject]) => {
+        const jobObject = Object.fromEntries(
+          Object.entries(_jobObject).map(([key, value]) => [
+            jobKeysMapping[key] ?? key,
+            value,
+          ]),
+        );
+
         if ('steps' in jobObject) {
           const { steps, ...jobKeys } = jobObject;
           const jobKeysIndentation = this.getIndentation(3);
@@ -60,10 +67,7 @@ ${parsedJobs}
             nonStepsEntries.length === 0
               ? ''
               : Object.entries(jobKeys)
-                  .map(
-                    ([key, value]) =>
-                      `"${jobKeysMapping[key] ?? key}": ${JSON.stringify(value)}`,
-                  )
+                  .map(([key, value]) => `"${key}": ${JSON.stringify(value)}`)
                   .join(`,\n${jobKeysIndentation}`) +
                 `,\n${jobKeysIndentation}`;
           return `${jobsIndentation}new Job('${jobId}', {\n${jobKeysIndentation}${nonStepsEntriesAsString}"steps": [\n${parsedSteps}\n${jobKeysIndentation}]\n${jobsIndentation}})`;
