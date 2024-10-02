@@ -1,0 +1,9 @@
+node_modules/
+coverage
+build/
+
+.vscode
+.idea/
+.npm
+.eslintcache
+.DS_Store

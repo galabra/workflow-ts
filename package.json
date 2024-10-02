@@ -1,0 +1,59 @@
+{
+  "name": "workflow-ts",
+  "version": "0.0.1",
+  "description": "Create modular and extendable workflows using TypeScript",
+  "scripts": {
+    "clean": "rm -rf ./build ./coverage",
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "generate-workflow-files": "npm run build && npx generate-workflow-files build",
+    "convert-workflows": "npm run build && node ./build/scripts/convert-workflows.js",
+    "lint": "eslint .",
+    "test": "jest",
+    "test:coverage": "jest --coverage --no-cache",
+    "test:watch": "jest --watch"
+  },
+  "author": "Gal Abra <galabra@users.noreply.github.com>",
+  "license": "MIT",
+  "bin": {
+    "convert-workflows": "./build/bin.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./build/index.d.ts",
+      "default": "./build/index.js"
+    },
+    "steps": {
+      "types": "./build/types/steps/index.d.ts",
+      "default": "./build/types/steps/index.js"
+    },
+    "jobs": {
+      "types": "./build/types/jobs/index.d.ts",
+      "default": "./build/types/jobs/index.js"
+    }
+  },
+  "dependencies": {
+    "github-actions-workflow-ts": "^0.3.1",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "~9.10",
+    "@swc/jest": "^0.2.36",
+    "@types/jest": "^29.5.13",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "~20",
+    "@typescript-eslint/parser": "~8.5",
+    "eslint": "~9.10",
+    "eslint-config-prettier": "~9.1",
+    "eslint-plugin-jest": "^28.8.3",
+    "globals": "~15.9",
+    "jest": "^29.7.0",
+    "js-yaml": "^4.1.0",
+    "prettier": "~3.3",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "tslib": "^2.7.0",
+    "typescript": "~5.5",
+    "typescript-eslint": "~8.5"
+  }
+}
