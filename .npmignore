@@ -1,6 +1,5 @@
 node_modules/
 coverage
-build/
 
 .vscode
 .idea/
@@ -8,3 +7,6 @@ build/
 .eslintcache
 .DS_Store
 .env
+
+src/**/*
+__tests__/**/*
