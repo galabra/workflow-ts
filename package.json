@@ -1,7 +1,17 @@
 {
   "name": "workflow-ts",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Create modular and extendable workflows using TypeScript",
+  "keywords": [
+    "Github actions",
+    "workflow",
+    "CI",
+    "CD",
+    "CI/CD",
+    "deployment",
+    "infrastructure",
+    "devops"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/galabra/workflow-ts"
