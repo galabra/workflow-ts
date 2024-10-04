@@ -70,5 +70,9 @@
     "tslib": "^2.7.0",
     "typescript": "~5.5",
     "typescript-eslint": "~8.5"
+  },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com/",
+    "access": "public"
   }
 }
