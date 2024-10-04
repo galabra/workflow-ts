@@ -1,6 +1,6 @@
 {
   "name": "workflow-ts",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Create modular and extendable workflows using TypeScript",
   "keywords": [
     "Github actions",
@@ -72,7 +72,7 @@
     "typescript-eslint": "~8.5"
   },
   "publishConfig": {
-    "registry":"https://npm.pkg.github.com/",
+    "registry": "https://registry.npmjs.org",
     "access": "public"
   }
 }
